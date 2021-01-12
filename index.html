@@ -13,28 +13,33 @@
   <!-- Added a link to our external stylesheet-->
   <link rel="stylesheet" href="style.css">
 <body>
- 
+  <h1 class="text-center">Coding Quiz Challenge</h1>
+  <br><br>
+  </p>
+  <p>Try to answer the following code-related questions within the time limit. Keep in mind</p> 
+  <p>that incorrect answers will penalize your score time by 10 seconds.</p>
   <div id="container">
-        <div id="start">Start Quiz!</div>
+       <div style="background-color: rgb(68, 17, 68); color: white"; id = "start">Start Quiz!</div>
         <div id="quiz" style="display: none">
             <div id="question"></div>
-            <div id="qImg"></div>
-            <div id="choices">
+              <div id="choices">
               <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-                <div class="choice" id="D" onclick="checkAnswer('D')"></div>            
-            </div>
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>   
+                <div class="choice" id="correct" ></div>   
+              </div>
             <div id="timer">
                 <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
-            </div>
+                <div id="timeEl"></div>
+                </div>
             <div id="progress"></div>
         </div>
         <div id="scoreContainer" style="display: none"></div>
     </div>
-    <script src="quiz.js"></script>
+   
+    <script src="script.js"></script>
+ 
 </body>
 </html>
  
