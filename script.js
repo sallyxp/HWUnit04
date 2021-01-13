@@ -108,8 +108,25 @@ function renderProgress(){
 
 function renderCounter(){
        if(count <= questionTime){
-         counter.innerHTML = count;
-         count--
+         //counter.innerHTML = count;
+         counter.innerHTML = secondsLeft;
+        //secondsLeft--
+         //count--
+        
+         if(secondsLeft >0){
+            //do nothing
+         }
+         else{
+            clearInterval(TIMER);
+           
+            //if (score == 0){                
+             //   quiz.style.display = "none";
+              //  scoreDiv.style.display = "block";
+               // scoreDiv.innerHTML += "Your score is zero - back to w3schools!";
+            //}
+            scoreRender(); 
+            
+        }
     }else{
         if(runningQuestion < lastQuestion){
             runningQuestion++;
@@ -132,6 +149,7 @@ function checkAnswer(answer){
     }else{
         answerIsWrong();
         count = count -10;
+        secondsLeft = secondsLeft -10;
     }
     
     if(runningQuestion < lastQuestion){
@@ -156,32 +174,31 @@ function answerIsWrong(){
 
 // score render
 function scoreRender(){
+  quiz.style.display = "none";
    scoreDiv.style.display = "block";
-   quiz.style.display = "none";
-   score;
+   parseInt(score);
     var arrScoreboard = [
         {
             initials: "Initials",
             score : "Score"
         }];
     
-   if(score == 0){
-      scoreDiv.innerHTML += "Your score was zero - back to w3schools!";
-    }   
-   else {   
+   
+   if (score > 0) {   
     
      scoreDiv.innerHTML += "<p>Your score is: " + score +" - Genius!</p>";
     
-      if  (Genius.length == 0) {
-          //do nothing
-      }
-      else {
+      if  (Genius.length > 0) {
         var Genius = prompt("Would you like to record your magnificent score with your initials?"); 
         arrScoreboard.push(Genius, score);
         console.log(arrScoreboard);
       }
+      
    }
-    scoreDiv.innerHTML = score;
+   else {
+      scoreDiv.innerHTML += "Your score was zero - back to w3schools!";
+   }
+    //scoreDiv.innerHTML = score;
 }
      // Add event listener to generate button
      start.addEventListener("click", startQuiz); 
@@ -189,7 +206,7 @@ function scoreRender(){
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 
-var secondsLeft = 10;
+var secondsLeft = 60;
 
 function setTime() {
   var timerInterval = setInterval(function() {
