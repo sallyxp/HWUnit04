@@ -1,4 +1,4 @@
-# Project: Multiple Choice Quiz in Javascript
+# Project: JavaScript-Quiz - multiple choice quiz in JavaScript
 
 ## Description 
 
